@@ -306,18 +306,12 @@ def read_from_file():
             ROW[r] + COL[c]: int(line[9 * r + c]) for r in range(9) for c in range(9)
         }
 
-        # Print starting board. TODO: Comment this out when timing runs.
-        print_board(board)
-
         # Solve with backtracking
         start = timeit.default_timer()
         solved_board = backtracking(board)
         stop = timeit.default_timer()
 
         results.append(stop - start)
-
-        # Print solved board. TODO: Comment this out when timing runs.
-        print_board(solved_board)
 
         # Write board to file
         outfile.write(board_to_string(solved_board))
@@ -372,7 +366,7 @@ if __name__ == "__main__":
 
             # Print solved board. TODO: Comment this out when timing runs.
             print_board(solved_board)
-            print("Runtime: " + str(stop - start))
+            print("Runtime for puzzle: " + str(stop - start))
 
             # Write board to file
             outfile.write(board_to_string(solved_board))
